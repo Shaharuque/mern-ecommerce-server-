@@ -20,5 +20,11 @@ router.post("/login", loginController);
 // Protected route
 router.get("/test", requireSignIn, isAdmin, test);
 router.get("/testing", testing);
+//authenticated user holey response a ok:true jabey(requireSignIn middleware ar help a user logged-in/authenticated kina check)
+router.get('/user-auth',requireSignIn,(req,res)=>{
+  res.status(200).send({
+    ok:true
+  })
+})
 
 export default router;
