@@ -11,7 +11,7 @@ export const registerController = async (req, res) => {
 
     // validation
     if (!name) {
-      return res.send({ error: "Name is Required" });
+      return res.send({ message: "Name is Required" });
     }
     if (!email) {
       return res.send({ message: "Email is Required" });
@@ -35,8 +35,8 @@ export const registerController = async (req, res) => {
 
     if (existingUser) {
       return res.status(200).send({
-        success: true,
-        message: "Already Registed please login...",
+        success: false,
+        message: "Already Registed please login",
       });
     }
 
@@ -138,4 +138,9 @@ export const test = async (req, res) => {
       message: "error",
     });
   }
+};
+
+export const testing = (req, res) => {
+  const filePath = "./hello.txt";
+  res.download(filePath);
 };

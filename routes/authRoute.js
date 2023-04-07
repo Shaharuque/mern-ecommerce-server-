@@ -3,6 +3,7 @@ import {
   loginController,
   registerController,
   test,
+  testing,
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
@@ -18,5 +19,6 @@ router.post("/login", loginController);
 //isAdmin=>middleware to check whether the user is admin or not
 // Protected route
 router.get("/test", requireSignIn, isAdmin, test);
+router.get("/testing", testing);
 
 export default router;

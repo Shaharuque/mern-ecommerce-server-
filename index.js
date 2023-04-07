@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import morgan from "morgan";
+import cors from "cors";
 
 //Routes import
 import authRoutes from "./routes/authRoute.js";
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 8080;
 dotenv.config(); //As my env file is int the root folder so don't need to define the path otherwise we can difine the path using {path}
 
 //Middlewares
+app.use(cors());
 app.use(express.json()); //req,res in json format previously body parser use hoto
 app.use(morgan("dev"));
 
